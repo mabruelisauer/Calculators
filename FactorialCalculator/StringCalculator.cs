@@ -15,7 +15,7 @@ namespace Calculator
                 return 0;
             }
 
-            string[] numberStrings = numbers.Split(',');
+            string[] numberStrings = numbers.Split(new char[] { ',', '\n' });
 
             int sum = 0;
 
