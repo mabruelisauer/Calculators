@@ -17,7 +17,7 @@ namespace Calculator
         }
 
         [TestMethod]
-        public void Seperator()
+        public void SeperatorN()
         {
             //Arrange
             var calc = new StringCalculator();
@@ -27,6 +27,32 @@ namespace Calculator
 
             //Assert
             Assert.AreEqual(14, result);
+        }
+
+        [TestMethod]
+        public void AnySeperator()
+        {
+            //Arrange
+            var calc = new StringCalculator();
+
+            //Act
+            int result = calc.Add(";1;2");
+
+            //Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void NegativeNumbers()
+        {
+            //Arrange
+            var calc = new StringCalculator();
+
+            //Act
+            string input = (";1;-2;3;-4;5");
+
+            //Assert
+            Assert.ThrowsException<InvalidOperationException>(() => calc.Add(input), "Negatives not allowed: -2, -4");
         }
     }
 }

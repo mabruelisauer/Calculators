@@ -15,21 +15,41 @@ namespace Calculator
                 return 0;
             }
 
-            string[] numberStrings = numbers.Split(new char[] { ',', '\n' });
+            char separator = ',';
+            if (!char.IsDigit(numbers[0]))
+            {
+                separator = numbers[0];
+                numbers = numbers.Substring(1);
+            }
+
+            string[] numberStrings = numbers.Split(new char[] { separator, '\n' });
 
             int sum = 0;
+            List<int> negativeNumbers = new List<int>();
 
             foreach (string numberString in numberStrings)
             {
                 int number;
                 if (int.TryParse(numberString, out number))
                 {
-                    sum += number;
+                    if (number < 0)
+                    {
+                        negativeNumbers.Add(number);
+                    }
+                    else
+                    {
+                        sum += number;
+                    }
                 }
                 else
                 {
                     throw new ArgumentException("Invalid number format");
                 }
+            }
+
+            if (negativeNumbers.Count > 0)
+            {
+                throw new InvalidOperationException($"Negatives not allowed: {string.Join(", ", negativeNumbers)}");
             }
 
             return sum;
