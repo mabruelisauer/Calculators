@@ -8,8 +8,16 @@ namespace Calculator
 {
     public class StringCalculator {
 
-        public int Add(string numbers)
+        private static int calledCount = 0;
+
+        public static int CalledCount
         {
+            get { return calledCount; }
+        }
+
+        public static int Add(string numbers)
+        {
+            calledCount++;
             if (string.IsNullOrEmpty(numbers))
             {
                 return 0;
