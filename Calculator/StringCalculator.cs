@@ -66,6 +66,5 @@ namespace Calculator
 
             return sum;
         }
-
     }
 }
