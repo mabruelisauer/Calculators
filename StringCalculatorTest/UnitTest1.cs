@@ -54,5 +54,18 @@ namespace Calculator
             //Assert
             Assert.ThrowsException<InvalidOperationException>(() => calc.Add(input), "Negatives not allowed: -2, -4");
         }
+
+        [TestMethod]
+        public void NumbersOver1000()
+        {
+            //Arrange
+            var calc = new StringCalculator();
+
+            //Act
+            int result = calc.Add("2,1001");
+
+            //Assert
+            Assert.AreEqual(2, result);
+        }
     }
 }

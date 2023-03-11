@@ -38,7 +38,10 @@ namespace Calculator
                     }
                     else
                     {
-                        sum += number;
+                        if (number<=100)
+                        {
+                            sum += number;
+                        }
                     }
                 }
                 else
