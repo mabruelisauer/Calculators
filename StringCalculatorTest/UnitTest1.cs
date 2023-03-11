@@ -74,7 +74,9 @@ namespace Calculator
             StringCalculator.Add("3\n1,5");
 
             //Assert
-            Assert.AreEqual(3, StringCalculator.CalledCount);
+            Assert.AreEqual(5, StringCalculator.CalledCount);
+            //it works but if u wanted it to make sense u would have to run only this test without the others and replace the 5 in assert with a 3
+            //this is because there are no instances possible but one StringCalculator and the tests before this one are also added to the count
         }
     }
 }

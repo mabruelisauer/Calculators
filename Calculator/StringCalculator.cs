@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    public class StringCalculator {
+    public class StringCalculator
+    {
 
         private static int calledCount = 0;
 
@@ -46,7 +47,7 @@ namespace Calculator
                     }
                     else
                     {
-                        if (number<=100)
+                        if (number <= 100)
                         {
                             sum += number;
                         }
